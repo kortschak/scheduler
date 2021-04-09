@@ -52,7 +52,7 @@ PUBSUB_EMULATOR_HOST. This can be obtained by running
 and running the output prior to starting scheduler.
 
 Then in a third terminal, you can receive the pubsub messages using the
-python snippets described in in the emulator documentation.
+python snippets described in the emulator documentation.
 
 See https://cloud.google.com/pubsub/docs/emulator for more documentation
 about the gcloud emulator.
