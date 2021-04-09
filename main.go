@@ -47,7 +47,7 @@ Once the pubsub emulator is ready, you can start scheduler. For scheduler
 to know to use the emulator it must be started with an appropriately set
 PUBSUB_EMULATOR_HOST. This can be obtained by running
 
- $ $(gcloud beta emulators pubsub env-init)
+ $ gcloud beta emulators pubsub env-init
 
 and running the output prior to starting scheduler.
 
