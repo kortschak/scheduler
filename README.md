@@ -2,6 +2,16 @@
 
 `scheduler` is a simple Google Scheduler emulator for mocking local Pub/Sub cron jobs.
 
+## Installation
+
+Assuming a functioning Go installation (≥v1.16), `scheduler` can be installed by running
+
+```
+$ go install github.com/kortschak/scheduler@latest
+```
+
+## Example use
+
 Configure `jobs.yaml`...
 
 ```
