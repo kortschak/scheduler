@@ -103,8 +103,7 @@ about the gcloud emulator.
 			}
 			os.Exit(1)
 		}
-		topics = append(topics, t)
-		c.AddFunc(cronspec, func() {
+		_, err = c.AddFunc(cronspec, func() {
 			res := t.Publish(context.Background(), &pubsub.Message{Data: []byte(j.Payload)})
 			id, err := res.Get(context.Background())
 			if err != nil {
@@ -113,6 +112,14 @@ about the gcloud emulator.
 			}
 			log.Printf("published %q id=%s", j.Name, id)
 		})
+		if err != nil {
+			log.Printf("error in cronspec for %q: %v", j.Name, err)
+			for _, t := range topics {
+				t.Stop()
+			}
+			os.Exit(1)
+		}
+		topics = append(topics, t)
 	}
 
 	// Handle interrupt signal.
