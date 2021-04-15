@@ -86,6 +86,7 @@ about the gcloud emulator.
 	var topics []*pubsub.Topic
 	c := cron.New()
 	for _, j := range cfg.Jobs {
+		j := j
 		if strings.ToLower(j.Target.Destination) != "pub/sub" {
 			continue
 		}
