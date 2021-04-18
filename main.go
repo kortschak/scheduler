@@ -144,9 +144,13 @@ about the gcloud emulator.
 	// Stop cron.
 	c.Stop()
 
-	// Close pub topics.
+	// Delete pub topics.
 	for _, t := range topics {
-		t.Stop()
+		log.Printf("deleting %v", t)
+		err := t.Delete(context.Background())
+		if err != nil {
+			log.Fatalf("failed to delete topic: %v", err)
+		}
 	}
 
 	// Release signal.
