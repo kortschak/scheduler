@@ -18,6 +18,8 @@ import (
 
 	"cloud.google.com/go/pubsub"
 	"github.com/robfig/cron/v3"
+	"google.golang.org/grpc"
+	"google.golang.org/grpc/codes"
 	"gopkg.in/yaml.v2"
 )
 
@@ -96,6 +98,10 @@ about the gcloud emulator.
 		}
 		t, err := client.CreateTopic(context.Background(), j.Target.Topic)
 		if err != nil {
+			if grpc.Code(err) == codes.AlreadyExists {
+				log.Printf("topic %q already exists", j.Target.Topic)
+				continue
+			}
 			log.Printf("failed to publish topic %q: %v", j.Target.Topic, err)
 			// Clean-up and exit with a failure.
 			for _, t := range topics {
