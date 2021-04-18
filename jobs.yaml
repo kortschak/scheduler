@@ -8,3 +8,11 @@ jobs:
     destination: "Pub/Sub"
     topic: "cron-job"
   payload: "hello cron!"
+- name: "Hellos Australia"
+  description: "Another scheduler job"
+  frequency: "*/2 * * * *"
+  timezone: "Australia/Melbourne"
+  target:
+    destination: "Pub/Sub"
+    topic: "cron-job-again"
+  payload: "hello croney!"
