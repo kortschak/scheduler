@@ -1,0 +1,4 @@
+project: "testing"
+defaultconfig:
+  ackdeadline: "5m"
+  expirationpolicy: Null

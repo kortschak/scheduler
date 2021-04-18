@@ -1,0 +1,7 @@
+project: "testing"
+subscriptions:
+- topic: "cron-job"
+  id: "test-0"
+  config:
+    ackdeadline: "5m"
+    expirationpolicy: Null
